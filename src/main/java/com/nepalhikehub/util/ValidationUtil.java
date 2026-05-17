@@ -9,7 +9,7 @@ public class ValidationUtil {
     );
     
     private static final Pattern PHONE_PATTERN = Pattern.compile(
-        "^[9][8-9][0-9]{8}$"
+        "^[9][7-8][0-9]{8}$"
     );
     
     private static final Pattern NAME_PATTERN = Pattern.compile(
