@@ -49,7 +49,7 @@
                 <button type="submit" class="signin-btn">Login</button>
             </form>
             <div class="signup-link">
-                New Customer? <a href="${pageContext.request.contextPath}/views/auth/signup.jsp">Create Account</a>
+                New User? <a href="${pageContext.request.contextPath}/views/auth/signup.jsp">Create Account</a>
             </div>
         </div>
     </div>

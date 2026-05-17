@@ -40,7 +40,7 @@ public class ValidationUtil {
             return "Please enter a valid email address";
         }
         if (!isValidPhone(phone)) {
-            return "Phone number must start with 98 or 99 followed by 8 digits";
+            return "Phone number must start with 97 or 98 followed by 8 digits";
         }
         if (!isValidPassword(password)) {
             return "Password must be at least 6 characters long";
