@@ -8,20 +8,13 @@
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     margin-bottom: 2rem;
 }
 
-.trekking-intro p {
-    color: var(--gray);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
 .trekking-intro h2 {
-    color: var(--primary-dark);
+    color: #2F4A85;
     margin: 1.5rem 0 1rem;
-    font-size: 1.3rem;
 }
 
 .trekking-intro ul {
@@ -30,12 +23,12 @@
 }
 
 .trekking-intro ul li {
-    margin-bottom: 0.8rem;
-    color: var(--gray);
+    margin-bottom: 0.5rem;
+    color: #6c757d;
 }
 
 .trekking-intro ul li i {
-    color: var(--primary);
+    color: #5A7FBA;
     margin-right: 0.5rem;
 }
 
@@ -49,16 +42,16 @@
     display: flex;
     gap: 2rem;
     background: white;
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: var(--shadow);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     margin-bottom: 2rem;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .trekking-item:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
 
 .trekking-image {
@@ -79,34 +72,28 @@
 }
 
 .trekking-details h3 {
-    color: var(--primary-dark);
+    color: #2F4A85;
     margin-bottom: 0.5rem;
 }
 
-.package-meta {
+.trek-meta {
     display: flex;
     gap: 1rem;
     margin: 0.5rem 0;
-    color: var(--gray);
-    font-size: 0.8rem;
+    color: #6c757d;
+    font-size: 0.85rem;
 }
 
-.package-meta i {
-    margin-right: 0.3rem;
-    color: var(--primary);
-}
-
-.package-price {
+.trek-price {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--primary);
+    color: #5A7FBA;
     margin: 0.8rem 0;
 }
 
-.package-price span {
+.trek-price span {
     font-size: 0.75rem;
-    color: var(--gray);
-    font-weight: normal;
+    color: #6c757d;
 }
 
 @media (max-width: 768px) {
@@ -116,10 +103,6 @@
     
     .trekking-image {
         width: 100%;
-        height: 200px;
-    }
-    
-    .intro-image {
         height: 200px;
     }
 }

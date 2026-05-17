@@ -1,5 +1,7 @@
 package com.nepalhikehub.controller.admin;
 
+import com.nepalhikehub.dao.BookingDAO;
+import com.nepalhikehub.dao.TrekDAO;
 import com.nepalhikehub.dao.UserDAO;
 import com.nepalhikehub.model.User;
 import jakarta.servlet.ServletException;
@@ -10,14 +12,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/admin/users")
-public class ManageUsersServlet extends HttpServlet {
+@WebServlet("/admin/dashboard")
+public class AdminDashboardServlet extends HttpServlet {
     
     private UserDAO userDAO;
+    private TrekDAO trekDAO;
+    private BookingDAO bookingDAO;
     
     @Override
     public void init() throws ServletException {
         userDAO = new UserDAO();
+        trekDAO = new TrekDAO();
+        bookingDAO = new BookingDAO();
     }
     
     @Override
@@ -32,18 +38,12 @@ public class ManageUsersServlet extends HttpServlet {
             return;
         }
         
-        String action = req.getParameter("action");
+        // Get statistics for dashboard
+        req.setAttribute("totalUsers", userDAO.getAllUsers().size());
+        req.setAttribute("pendingUsers", userDAO.getPendingUsers().size());
+        req.setAttribute("totalTreks", trekDAO.getAllTreks().size());
+        req.setAttribute("totalBookings", bookingDAO.getAllBookings().size());
         
-        if ("approve".equals(action)) {
-            int userId = Integer.parseInt(req.getParameter("id"));
-            userDAO.approveUser(userId);
-        } else if ("delete".equals(action)) {
-            int userId = Integer.parseInt(req.getParameter("id"));
-            userDAO.deleteUser(userId);
-        }
-        
-        req.setAttribute("users", userDAO.getAllUsers());
-        req.setAttribute("pendingUsers", userDAO.getPendingUsers());
-        req.getRequestDispatcher("/views/admin/manage-users.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/admin/dashboard.jsp").forward(req, resp);
     }
 }

@@ -10,11 +10,11 @@
 .contact-info {
     background: #f8f9fa;
     padding: 2rem;
-    border-radius: var(--border-radius);
+    border-radius: 16px;
 }
 
 .contact-info h3 {
-    color: var(--primary-dark);
+    color: #2F4A85;
     margin-bottom: 1.5rem;
 }
 
@@ -22,35 +22,75 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .contact-info-item i {
     width: 40px;
     height: 40px;
-    background: var(--light);
+    background: #E1F0F4;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary);
+    color: #5A7FBA;
 }
 
 .contact-form {
     background: white;
     padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 .contact-form h3 {
-    color: var(--primary-dark);
+    color: #2F4A85;
     margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #5A7FBA;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.8rem;
+    background: #2F4A85;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #5A7FBA;
 }
 
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
-        padding: 0 1rem 3rem;
     }
 }

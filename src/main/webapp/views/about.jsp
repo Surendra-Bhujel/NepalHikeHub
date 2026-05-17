@@ -1,14 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="includes/header.jsp" %>
+<jsp:include page="/views/includes/header.jsp" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/about.css">
 
 <main>
     <div class="page-header">
-        <div class="container"><div class="breadcrumb">Home > About Us</div><h1>About Us</h1></div>
+        <div class="container">
+            <div class="breadcrumb">Home > About Us</div>
+            <h1>About Us</h1>
+        </div>
     </div>
     
     <div class="about-section">
-        <img src="${pageContext.request.contextPath}/images/prayer-flags-nepal.avif" alt="Prayer Flags" class="about-image">
+        <img src="${pageContext.request.contextPath}/image/prayer-flags.png" alt="Prayer Flags" class="about-image">
         
         <h2>Welcome to Nepal Hike Hub</h2>
         <p>Welcome to Nepal Hike Hub, your trusted companion for exploring the breathtaking landscapes of Nepal. We are passionate about connecting adventure seekers with the natural beauty, rich culture, and unforgettable trekking experiences that Nepal has to offer.</p>
@@ -36,4 +39,4 @@
     </div>
 </main>
 
-<%@ include file="includes/footer.jsp" %>
+<jsp:include page="/views/includes/footer.jsp" />

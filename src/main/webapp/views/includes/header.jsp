@@ -5,7 +5,7 @@
     String contextPath = request.getContextPath();
     String requestURI = request.getRequestURI();
     
-    boolean isHome = requestURI.contains("home.jsp") || requestURI.equals(contextPath + "/");
+    boolean isHome = requestURI.contains("home.jsp");
     boolean isTrekking = requestURI.contains("trekking.jsp");
     boolean isPeakClimbing = requestURI.contains("peak-climbing.jsp");
     boolean isBooking = requestURI.contains("booking.jsp");
@@ -26,12 +26,8 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <a href="${pageContext.request.contextPath}/home.jsp">Nepal<span>HikeHub</span></a>
-            </div>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <div class="logo"><a href="${pageContext.request.contextPath}/home.jsp">Nepal<span>HikeHub</span></a></div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="${pageContext.request.contextPath}/home.jsp" class="<%= isHome ? "active" : "" %>">Home</a></li>
                 <li><a href="${pageContext.request.contextPath}/views/trekking.jsp" class="<%= isTrekking ? "active" : "" %>">Trekking in Nepal</a></li>
@@ -47,7 +43,7 @@
                         <div class="user-avatar"><%= currentUser.getName().charAt(0) %></div>
                         <span><%= currentUser.getName().split(" ")[0] %></span>
                         <% if (currentUser.getRoleId() == 1) { %>
-                            <a href="${pageContext.request.contextPath}/views/admin/dashboard.jsp" class="btn-signin" style="background: var(--primary-dark); color: white;">Admin</a>
+                            <a href="${pageContext.request.contextPath}/admin/dashboard" class="btn-signin">Admin</a>
                         <% } %>
                         <a href="${pageContext.request.contextPath}/signout" class="btn-signout">Sign Out</a>
                     </div>
@@ -59,11 +55,7 @@
         </div>
     </nav>
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
-        }
+        document.getElementById('menuToggle')?.addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
     </script>

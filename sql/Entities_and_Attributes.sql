@@ -82,3 +82,5 @@ CREATE TABLE reviews (
     FOREIGN KEY (trek_id) REFERENCES treks(trek_id),
     FOREIGN KEY (booking_id) REFERENCES bookings(booking_id)
 );
+
+Update user SET is_approved=1;

@@ -8,13 +8,13 @@
     </div>
     
     <div class="peak-intro">
-        <img src="${pageContext.request.contextPath}/images/hill.jpg" alt="Himalayan Peaks" class="intro-image">
+        <img src="${pageContext.request.contextPath}/image/hill.png" alt="Himalayan Peaks" class="intro-image">
         <p>Peak climbing in Nepal offers a unique blend of trekking and mountaineering, allowing adventurers to summit some of the most spectacular peaks in the Himalayas. These climbs are perfect for those who want to experience high-altitude climbing without the extreme technical demands of 8000m peaks.</p>
     </div>
     
     <div class="peak-list">
         <div class="peak-item">
-            <div class="peak-image"><img src="${pageContext.request.contextPath}/images/mera%20peak.jpg" alt="Mera Peak"></div>
+            <div class="peak-image"><img src="${pageContext.request.contextPath}/image/mera peak.png" alt="Mera Peak"></div>
             <div class="peak-details">
                 <h3>Mera Peak Climbing</h3>
                 <div class="package-meta"><span><i class="fas fa-map-marker-alt"></i> Everest Region</span><span><i class="fas fa-calendar"></i> 14 Days</span><span><i class="fas fa-chart-line"></i> Hard</span></div>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="peak-item">
-            <div class="peak-image"><img src="${pageContext.request.contextPath}/images/island%20peak.webp" alt="Island Peak"></div>
+            <div class="peak-image"><img src="${pageContext.request.contextPath}/image/island peak.png" alt="Island Peak"></div>
             <div class="peak-details">
                 <h3>Island Peak Climbing</h3>
                 <div class="package-meta"><span><i class="fas fa-map-marker-alt"></i> Everest Region</span><span><i class="fas fa-calendar"></i> 18 Days</span><span><i class="fas fa-chart-line"></i> Hard</span></div>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="peak-item">
-            <div class="peak-image"><img src="${pageContext.request.contextPath}/images/island.webp" alt="Lobuche"></div>
+            <div class="peak-image"><img src="${pageContext.request.contextPath}/image/island.png" alt="Lobuche"></div>
             <div class="peak-details">
                 <h3>Lobuche Peak Climbing</h3>
                 <div class="package-meta"><span><i class="fas fa-map-marker-alt"></i> Everest Region</span><span><i class="fas fa-calendar"></i> 16 Days</span><span><i class="fas fa-chart-line"></i> Hard</span></div>

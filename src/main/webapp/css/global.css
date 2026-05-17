@@ -181,7 +181,7 @@ main {
     color: var(--primary-dark);
 }
 
-/* ========== PAGE HEADER (Breadcrumb) ========== */
+/* ========== PAGE HEADER ========== */
 .page-header {
     background: var(--light);
     padding: 1.5rem 5%;
@@ -243,26 +243,6 @@ main {
 .btn-book:hover {
     background: var(--primary);
     transform: translateY(-2px);
-}
-
-/* ========== ALERTS ========== */
-.alert {
-    padding: 0.8rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-}
-
-.alert-success {
-    background: #d4edda;
-    color: var(--success);
-    border: 1px solid var(--success);
-}
-
-.alert-error {
-    background: #f8d7da;
-    color: var(--danger);
-    border: 1px solid var(--danger);
 }
 
 /* ========== FOOTER ========== */
