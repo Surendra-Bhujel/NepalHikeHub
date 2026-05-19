@@ -257,4 +257,15 @@ public class UserDAO {
         user.setCreatedAt(rs.getTimestamp("created_at"));
         return user;
     }
+    public boolean createAdminIfNotExists() {
+        String sql = "INSERT INTO users (role_id, name, email, password_hash, phone, is_approved) VALUES (1, 'Administrator', 'admin@nepalhikehub.com', 'admin123', '9800000000', 1)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            // If duplicate, ignore
+            return false;
+        }
+    }
 }
