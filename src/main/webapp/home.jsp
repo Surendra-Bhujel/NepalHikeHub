@@ -81,7 +81,7 @@
                 <div class="package-content">
                     <h3>Annapurna Circuit Trek</h3>
                     <p>Diverse landscapes from lush forests to high-altitude desert.</p>
-                    <div class="package-price">$850 <span>per person</span></div>
+                    <div class="package-price">$900 <span>per person</span></div>
                     <a href="${pageContext.request.contextPath}/views/booking.jsp?trekId=2" class="btn-book">Book Now →</a>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 <div class="package-content">
                     <h3>Langtang Valley Trek</h3>
                     <p>The "Valley of Glaciers" - pristine Himalayan landscapes.</p>
-                    <div class="package-price">$550 <span>per person</span></div>
+                    <div class="package-price">$650 <span>per person</span></div>
                     <a href="${pageContext.request.contextPath}/views/booking.jsp?trekId=3" class="btn-book">Book Now →</a>
                 </div>
             </div>
