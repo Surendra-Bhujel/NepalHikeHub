@@ -14,7 +14,7 @@ CREATE TABLE users (
     password_hash VARCHAR(255) NOT NULL,
     phone VARCHAR(20),
     profile_image VARCHAR(255),
-    is_approved TINYINT(1) DEFAULT 0,
+    is_approved TINYINT(1) DEFAULT 1,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES roles(role_id)
 );
@@ -82,5 +82,3 @@ CREATE TABLE reviews (
     FOREIGN KEY (trek_id) REFERENCES treks(trek_id),
     FOREIGN KEY (booking_id) REFERENCES bookings(booking_id)
 );
-
-Update user SET is_approved=1;

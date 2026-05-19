@@ -8,7 +8,7 @@ INSERT INTO users (role_id, name, email, password_hash, phone, is_approved) VALU
 (1, 'Admin User', 'admin@trekhub.com', 'hashed_admin_password', '9800000001', 1),
 (2, 'Ram Sharma', 'ram@example.com', 'hashed_ram_password', '9800000002', 1),
 (2, 'Sita Rai', 'sita@example.com', 'hashed_sita_password', '9811111111', 1),
-(2, 'Hari Thapa', 'hari@example.com', 'hashed_hari_password', '9822222222', 0);
+(2, 'Hari Thapa', 'hari@example.com', 'hashed_hari_password', '9822222222', 1);
 
 INSERT INTO treks
 (trek_name, difficulty, duration_days, price, max_group_size, region, start_location, end_location, distance_km, image_url, description, is_active)
