@@ -11,7 +11,7 @@
     </div>
     
     <div class="about-section">
-        <img src="${pageContext.request.contextPath}/image/prayer-flags.png" alt="Prayer Flags" class="about-image">
+        <img src="${pageContext.request.contextPath}/image/prayer-flags-nepal.png" alt="Prayer Flags" class="about-image">
         
         <h2>Welcome to Nepal Hike Hub</h2>
         <p>Welcome to Nepal Hike Hub, your trusted companion for exploring the breathtaking landscapes of Nepal. We are passionate about connecting adventure seekers with the natural beauty, rich culture, and unforgettable trekking experiences that Nepal has to offer.</p>

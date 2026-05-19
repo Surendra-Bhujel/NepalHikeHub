@@ -1,20 +1,45 @@
+/* Trekking Page Styles */
+.page-header {
+    background: #E1F0F4;
+    padding: 1.5rem 5%;
+    margin-top: 70px;
+}
+
+.page-header h1 {
+    color: #2F4A85;
+    font-size: 1.8rem;
+}
+
+.breadcrumb {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+/* Intro Section */
 .trekking-intro {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5% 2rem;
+    margin: 2rem auto 0;
+    padding: 0 5%;
 }
 
 .intro-image {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 20px;
     margin-bottom: 2rem;
+}
+
+.trekking-intro p {
+    color: #6c757d;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
 }
 
 .trekking-intro h2 {
     color: #2F4A85;
     margin: 1.5rem 0 1rem;
+    font-size: 1.3rem;
 }
 
 .trekking-intro ul {
@@ -23,7 +48,7 @@
 }
 
 .trekking-intro ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     color: #6c757d;
 }
 
@@ -32,6 +57,76 @@
     margin-right: 0.5rem;
 }
 
+/* Search Section */
+.search-section {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 0 5%;
+}
+
+.search-section h3 {
+    color: #2F4A85;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.search-form input,
+.search-form select {
+    flex: 1;
+    min-width: 160px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.search-form input:focus,
+.search-form select:focus {
+    outline: none;
+    border-color: #5A7FBA;
+}
+
+.search-form button {
+    padding: 0.8rem 1.5rem;
+    background: #2F4A85;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-form button:hover {
+    background: #5A7FBA;
+}
+
+.clear-btn {
+    padding: 0.8rem 1.5rem;
+    background: #6c757d;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.clear-btn:hover {
+    background: #5a6268;
+}
+
+/* Trekking List */
 .trekking-list {
     max-width: 1200px;
     margin: 0 auto;
@@ -42,7 +137,7 @@
     display: flex;
     gap: 2rem;
     background: white;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     margin-bottom: 2rem;
@@ -55,15 +150,22 @@
 }
 
 .trekking-image {
-    width: 300px;
-    height: 200px;
+    width: 320px;
+    height: 220px;
     flex-shrink: 0;
+    overflow: hidden;
+    background: #2F4A85;
 }
 
 .trekking-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.trekking-item:hover .trekking-image img {
+    transform: scale(1.05);
 }
 
 .trekking-details {
@@ -74,28 +176,59 @@
 .trekking-details h3 {
     color: #2F4A85;
     margin-bottom: 0.5rem;
+    font-size: 1.3rem;
 }
 
 .trek-meta {
     display: flex;
-    gap: 1rem;
-    margin: 0.5rem 0;
+    gap: 1.5rem;
+    margin: 0.8rem 0;
     color: #6c757d;
     font-size: 0.85rem;
+    flex-wrap: wrap;
 }
 
-.trek-price {
-    font-size: 1.3rem;
-    font-weight: 700;
+.trek-meta i {
+    margin-right: 0.3rem;
     color: #5A7FBA;
+}
+
+.trekking-details p {
+    color: #6c757d;
+    line-height: 1.6;
     margin: 0.8rem 0;
 }
 
-.trek-price span {
-    font-size: 0.75rem;
-    color: #6c757d;
+.trek-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #5A7FBA;
+    margin: 1rem 0;
 }
 
+.trek-price span {
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-weight: normal;
+}
+
+.btn-book {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: #2F4A85;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-book:hover {
+    background: #5A7FBA;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .trekking-item {
         flex-direction: column;
@@ -104,5 +237,24 @@
     .trekking-image {
         width: 100%;
         height: 200px;
+    }
+    
+    .search-form {
+        flex-direction: column;
+    }
+    
+    .search-form input,
+    .search-form select,
+    .search-form button,
+    .clear-btn {
+        width: 100%;
+    }
+    
+    .intro-image {
+        height: 200px;
+    }
+    
+    .trek-meta {
+        gap: 0.8rem;
     }
 }

@@ -46,7 +46,7 @@
                     </label>
                     <a href="#" class="forgot-link">Forgot Password?</a>
                 </div>
-                <button type="submit" class="signin-btn">Login</button>
+                <button type="submit" class="signin-btn">Signin</button>
             </form>
             <div class="signup-link">
                 New User? <a href="${pageContext.request.contextPath}/views/auth/signup.jsp">Create Account</a>

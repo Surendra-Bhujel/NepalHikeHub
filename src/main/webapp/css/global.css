@@ -359,3 +359,24 @@ main {
         font-size: 1.5rem;
     }
 }
+
+/* Admin Button Style */
+.btn-admin {
+    background: #dc3545;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-admin:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    color: white;
+}

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrekDAO {
-    
+    	
     // Create trek
     public boolean createTrek(Trek trek) {
         String sql = "INSERT INTO treks (trek_name, difficulty, duration_days, price, max_group_size, region, start_location, end_location, distance_km, image_url, description, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
