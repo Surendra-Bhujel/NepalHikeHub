@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/admin/approve-user")
-public class ApproveUserServlet extends HttpServlet {
+@WebServlet("/admin/delete-user")
+public class DeleteUserServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
@@ -18,7 +18,7 @@ public class ApproveUserServlet extends HttpServlet {
         String id = req.getParameter("id");
         if (id != null) {
             UserDAO userDAO = new UserDAO();
-            userDAO.approveUser(Integer.parseInt(id));
+            userDAO.deleteUser(Integer.parseInt(id));
         }
         resp.sendRedirect(req.getContextPath() + "/views/admin/manage-users.jsp");
     }
