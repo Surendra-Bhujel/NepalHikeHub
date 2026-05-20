@@ -12,34 +12,11 @@ import java.io.IOException;
 
 @WebServlet("/admin-access")
 public class AdminAccessServlet extends HttpServlet {
-    
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        
-        // Directly create admin user in database and login
-        UserDAO userDAO = new UserDAO();
-        
-        // First, check if admin exists
-        User admin = userDAO.getUserByEmail("admin@nepalhikehub.com");
-        
-        if (admin == null) {
-            // Create admin if doesn't exist
-            // Using simple registration
-            String result = userDAO.createAdminIfNotExists();
-            admin = userDAO.getUserByEmail("admin@nepalhikehub.com");
-        }
-        
-        if (admin != null) {
-            // Force login
-            HttpSession session = req.getSession();
-            session.setAttribute("user", admin);
-            session.setAttribute("admin_logged_in", true);
-            
-            // Redirect to admin dashboard
-            resp.sendRedirect(req.getContextPath() + "/views/admin/dashboard.jsp");
-        } else {
-            resp.getWriter().println("Error: Could not create or find admin user");
-        }
+        // Redirect unauthenticated users to the admin login page
+        resp.sendRedirect(req.getContextPath() + "/admin/admin-login.jsp");
     }
 }

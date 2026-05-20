@@ -5,7 +5,7 @@
 <%
     User currentUser = (User) session.getAttribute("user");
     if (currentUser == null || currentUser.getRoleId() != 1) {
-        response.sendRedirect(request.getContextPath() + "/admin-access");
+        response.sendRedirect(request.getContextPath() + "/admin/admin-login.jsp");
         return;
     }
     
@@ -45,10 +45,10 @@
     
     <div class="admin-container">
         <div class="sidebar">
-            <a href="${pageContext.request.contextPath}/views/admin/dashboard.jsp">Dashboard</a>
-            <a href="${pageContext.request.contextPath}/views/admin/manage-treks.jsp">Manage Treks</a>
-            <a href="${pageContext.request.contextPath}/views/admin/manage-users.jsp" style="background: #2F4A85; color: white;">Manage Users</a>
-            <a href="${pageContext.request.contextPath}/views/admin/manage-bookings.jsp">Manage Bookings</a>
+            <a href="${pageContext.request.contextPath}/admin/dashboard.jsp">Dashboard</a>
+            <a href="${pageContext.request.contextPath}/admin/manage-treks.jsp">Manage Treks</a>
+            <a href="${pageContext.request.contextPath}/admin/manage-users.jsp" style="background: #2F4A85; color: white;">Manage Users</a>
+            <a href="${pageContext.request.contextPath}/admin/manage-bookings.jsp">Manage Bookings</a>
         </div>
         
         <div class="content">
@@ -64,7 +64,8 @@
                             <td><%= u.getUserId() %></td>
                             <td><%= u.getName() %></td>
                             <td><%= u.getEmail() %></td>
-                            <td><a href="${pageContext.request.contextPath}/admin/approve-user?id=<%= u.getUserId() %>" class="btn-approve">Approve</a></td>
+                            <td><a href="${pageContext.request.contextPath}/admin/users?action=approve&id=<%= u.getUserId() %>" class="btn-approve">Approve</a>
+                            </td>
                         </tr>
                         <% } %>
                         <% if (pendingUsers.isEmpty()) { %>
@@ -86,7 +87,8 @@
                             <td><%= u.getEmail() %></td>
                             <td><%= u.getRoleId() == 1 ? "Admin" : "User" %></td>
                             <td><%= u.isApproved() ? "Approved" : "Pending" %></td>
-                            <td><a href="${pageContext.request.contextPath}/admin/delete-user?id=<%= u.getUserId() %>" class="btn-delete" onclick="return confirm('Delete?')">Delete</a></td>
+                            <td><a href="${pageContext.request.contextPath}/admin/users?action=delete&id=<%= u.getUserId() %>" class="btn-delete" onclick="return confirm('Delete this user?')">Delete</a>
+                            </td>
                         </tr>
                         <% } %>
                     </tbody>

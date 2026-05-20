@@ -3,7 +3,7 @@
 <%
     User currentUser = (User) session.getAttribute("user");
     if (currentUser == null || currentUser.getRoleId() != 1) {
-        response.sendRedirect(request.getContextPath() + "/views/auth/signin.jsp");
+        response.sendRedirect(request.getContextPath() + "/admin/admin-login.jsp");
         return;
     }
     

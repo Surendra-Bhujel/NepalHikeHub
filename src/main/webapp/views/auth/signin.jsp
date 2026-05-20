@@ -31,6 +31,10 @@
                 <div class="alert alert-error"><%= request.getAttribute("errorMessage") %></div>
             <% } %>
             
+            <% if ("registered".equals(request.getParameter("success"))) { %>
+    			<div class="alert alert-success">Account created successfully! You can now sign in.</div>
+			<% } %>
+            
             <form action="${pageContext.request.contextPath}/signin" method="post">
                 <div class="form-group">
                     <label>Your Email</label>
