@@ -32,9 +32,7 @@
                     <span><i class="fas fa-eye"></i> 2.5k views</span>
                 </div>
                 <h3>Top 5 Base Camp Trekking in Nepal</h3>
-                <p>Base camp trekking in Nepal is one of the most rewarding high-altitude experiences on Earth. Walking through ancient Sherpa villages, crossing glacial moraines, and standing at the foot of the world's highest peaks, all without a single piece of technical trekking gear, is what draws hundreds of thousands of visitors to the Himalayas every year...</p>
-                <a href="#" class="btn-read">Continue Reading →</a>
-            </div>
+                <p>Base camp trekking in Nepal is one of the most rewarding high-altitude experiences on Earth. Walking through ancient Sherpa villages, crossing glacial moraines, and standing at the foot of the world's highest peaks, all without a single piece of technical trekking gear, is what draws hundreds of thousands of visitors to the Himalayas every year.</p>            </div>
         </div>
 
         <!-- Post 2 -->
@@ -49,8 +47,7 @@
                     <span><i class="fas fa-eye"></i> 1.8k views</span>
                 </div>
                 <h3>Trekking in Nepal - Complete Guide</h3>
-                <p>Trekking in Nepal is often considered the pinnacle of adventure travel, and it's easy to see why. Nepal is home to the highest mountain on Earth - Mount Everest, along with world-renowned trekking routes like the Everest Base Camp Trek and the Annapurna Base Camp Trek...</p>
-                <a href="#" class="btn-read">Continue Reading →</a>
+                <p>Trekking in Nepal is often considered the pinnacle of adventure travel, and it's easy to see why. Nepal is home to the highest mountain on Earth - Mount Everest, along with world-renowned trekking routes like the Everest Base Camp Trek and the Annapurna Base Camp Trek.</p>
             </div>
         </div>
 
@@ -66,9 +63,7 @@
                     <span><i class="fas fa-eye"></i> 1.2k views</span>
                 </div>
                 <h3>Langtang Trek during Winter</h3>
-                <p>The Langtang Trek is often called the "Valley of Glaciers" trek — a relatively short journey from Kathmandu that immerses you in pristine Himalayan landscapes, Tamang culture, and jaw-dropping mountain views...</p>
-                <a href="#" class="btn-read">Continue Reading →</a>
-            </div>
+                <p>The Langtang Trek is often called the "Valley of Glaciers" trek — a relatively short journey from Kathmandu that immerses you in pristine Himalayan landscapes, Tamang culture, and jaw-dropping mountain views.</p>            </div>
         </div>
 
         <!-- Post 4 -->
@@ -83,8 +78,7 @@
                     <span><i class="fas fa-eye"></i> 3.1k views</span>
                 </div>
                 <h3>Nepali Culture and Traditions on the Trail</h3>
-                <p>Experience the rich culture of Nepal as you trek through ancient villages, interact with locals, and participate in traditional festivals along the Himalayan trails...</p>
-                <a href="#" class="btn-read">Continue Reading →</a>
+                <p>Experience the rich culture of Nepal as you trek through ancient villages, interact with locals, and participate in traditional festivals along the Himalayan trails.</p>
             </div>
         </div>
 
@@ -100,8 +94,7 @@
                     <span><i class="fas fa-eye"></i> 980 views</span>
                 </div>
                 <h3>Mera Peak - The Highest Trekking Peak in Nepal</h3>
-                <p>At 6,476 meters, Mera Peak is the highest trekking peak in Nepal. This blog covers everything you need to know about climbing Mera Peak, including permits, best seasons, and preparation tips...</p>
-                <a href="#" class="btn-read">Continue Reading →</a>
+                <p>At 6,476 meters, Mera Peak is the highest trekking peak in Nepal. This blog covers everything you need to know about climbing Mera Peak, including permits, best seasons, and preparation tips.</p>
             </div>
         </div>
 
@@ -117,26 +110,12 @@
                     <span><i class="fas fa-eye"></i> 750 views</span>
                 </div>
                 <h3>Island Peak Climbing - A Complete Guide</h3>
-                <p>Island Peak (Imja Tse) at 6,189m is one of the most popular climbing peaks in the Everest region. Learn about the challenges, rewards, and preparation needed for this adventure...</p>
-                <a href="#" class="btn-read">Continue Reading →</a>
+                <p>Island Peak (Imja Tse) at 6,189m is one of the most popular climbing peaks in the Everest region. Learn about the challenges, rewards, and preparation needed for this adventure.</p>
             </div>
         </div>
     </div>
 
-    <!-- Pagination -->
-    <div class="pagination">
-        <a href="${pageContext.request.contextPath}/views/blog.jsp?page=1" class="<%= currentPage == 1 ? "disabled" : "" %>">
-            <i class="fas fa-chevron-left"></i> Prev
-        </a>
-        <a href="${pageContext.request.contextPath}/views/blog.jsp?page=1" class="<%= currentPage == 1 ? "active" : "" %>">1</a>
-        <a href="${pageContext.request.contextPath}/views/blog.jsp?page=2" class="<%= currentPage == 2 ? "active" : "" %>">2</a>
-        <a href="${pageContext.request.contextPath}/views/blog.jsp?page=3" class="<%= currentPage == 3 ? "active" : "" %>">3</a>
-        <span>...</span>
-        <a href="${pageContext.request.contextPath}/views/blog.jsp?page=8">8</a>
-        <a href="${pageContext.request.contextPath}/views/blog.jsp?page=<%= currentPage + 1 %>" class="<%= currentPage == totalPages ? "disabled" : "" %>">
-            Next <i class="fas fa-chevron-right"></i>
-        </a>
-    </div>
+    
 </main>
 
 <jsp:include page="/views/includes/footer.jsp" />

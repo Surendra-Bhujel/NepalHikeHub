@@ -60,7 +60,7 @@ public class SignInServlet extends HttpServlet {
             }
             
             if (user.getRoleId() == 1) {
-                resp.sendRedirect(req.getContextPath() + "/admin/dashboard.jsp");
+                resp.sendRedirect(req.getContextPath() + "/views/admin/dashboard.jsp");
             } else {
                 resp.sendRedirect(req.getContextPath() + "/home.jsp");
             }
