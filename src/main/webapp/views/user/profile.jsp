@@ -46,6 +46,13 @@
     </div>
     
     <div class="profile-container">
+        <!-- BACK TO DASHBOARD BUTTON -->
+        <div style="margin-bottom: 20px;">
+            <a href="${pageContext.request.contextPath}/views/user/dashboard.jsp" class="btn-back-dashboard">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+        
         <div class="profile-card">
             <div class="profile-header">
                 <div class="profile-avatar">
@@ -78,7 +85,7 @@
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn-save"><i class="fas fa-save"></i> Update Profile</button>
-                    <a href="${pageContext.request.contextPath}/views/user/change-password-direct.jsp" class="btn-change"><i class="fas fa-key"></i> Change Password</a>
+                    <a href="${pageContext.request.contextPath}/views/user/change-password.jsp" class="btn-change"><i class="fas fa-key"></i> Change Password</a>
                 </div>
             </form>
         </div>
@@ -90,6 +97,22 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem 5% 4rem;
+}
+.btn-back-dashboard {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+}
+.btn-back-dashboard:hover {
+    background: #5a6268;
+    transform: translateX(-3px);
 }
 .profile-card {
     background: white;
