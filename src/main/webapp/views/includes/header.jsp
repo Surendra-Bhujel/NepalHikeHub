@@ -36,7 +36,39 @@
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="${pageContext.request.contextPath}/home.jsp" class="<%= isHome ? "active" : "" %>">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/views/trekking.jsp" class="<%= isTrekking ? "active" : "" %>">Trekking in Nepal</a></li>
+                
+                <!-- DROPDOWN MENU - Trekking in Nepal (CLICKABLE LINK) -->
+                <li class="dropdown">
+                    <a href="${pageContext.request.contextPath}/views/trekking.jsp" class="dropbtn <%= isTrekking ? "active" : "" %>">
+                        Trekking in Nepal <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-inner">
+                            <div class="dropdown-column">
+                                <h3>Annapurna Region Trekking</h3>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Annapurna&trek=abc">Annapurna Base Camp Trek – 14 Day</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Annapurna&trek=abc-short">ABC Trek from Pokhara – 6 Days</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Annapurna&trek=mardi">Mardi Himal Trek – 9 Days</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Annapurna&trek=poonhill">Ghorepani Poon Hill Trek - 8 Days</a>
+                            </div>
+                            <div class="dropdown-column">
+                                <h3>Everest Region Trek</h3>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Everest&trek=ebc">Everest Base Camp Trek – 14 Days</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Everest&trek=ebc-sleep">Sleep at Base Camp on Everest Trek – 15 Days</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Everest&trek=three-passes">Three Highest Passes Trek by Road – 19 Days</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Everest&trek=gokyo">Gokyo Valley Circuit Trek – 13 Days</a>
+                            </div>
+                            <div class="dropdown-column">
+                                <h3>Langtang Region Trekking</h3>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Langtang&trek=valley">Langtang Valley Trek – 10 Days</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Langtang&trek=ama-yangri">Ama Yangri Trek – 3 Days</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Langtang&trek=gosaikunda">Gosaikunda Lake Trek – 7 Days</a>
+                                <a href="${pageContext.request.contextPath}/views/trekking.jsp?region=Langtang&trek=ganja-la">Langtang Ganja La Pass Trek - 14 days</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
                 <li><a href="${pageContext.request.contextPath}/views/peak-climbing.jsp" class="<%= isPeakClimbing ? "active" : "" %>">Peak Climbing</a></li>
                 <li><a href="${pageContext.request.contextPath}/views/booking.jsp" class="<%= isBooking ? "active" : "" %>">Booking</a></li>
                 <li><a href="${pageContext.request.contextPath}/views/blog.jsp" class="<%= isBlog ? "active" : "" %>">Blog</a></li>
@@ -46,10 +78,9 @@
             <div class="auth-buttons">
                 <% if (currentUser != null) { %>
                     <div class="user-menu">
-                        <!-- CLICKABLE AVATAR & NAME - Opens Dashboard -->
                         <a href="${pageContext.request.contextPath}/views/user/dashboard.jsp" class="user-profile-link">
                             <div class="user-avatar"><%= currentUser.getName().charAt(0) %></div>
-                            <span><%= currentUser.getName().split(" ")[0] %></span>
+                            <span class="user-name"><%= currentUser.getName().split(" ")[0] %></span>
                         </a>
                         <% if (currentUser.getRoleId() == 1) { %>
                             <a href="${pageContext.request.contextPath}/views/admin/dashboard.jsp" class="btn-admin">Admin</a>
@@ -64,6 +95,7 @@
         </div>
     </nav>
     <script>
+        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
         if (menuToggle) {
@@ -71,4 +103,31 @@
                 navMenu.classList.toggle('active');
             });
         }
+        
+        // Mobile dropdown toggle (for touch devices)
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(function(dropdown) {
+            const dropbtn = dropdown.querySelector('.dropbtn');
+            if (dropbtn) {
+                dropbtn.addEventListener('click', function(e) {
+                    // Only prevent default on mobile for the dropdown toggle
+                    // But allow the link to work normally
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('open');
+                    }
+                });
+            }
+        });
+        
+        // Close dropdown when clicking outside (for mobile)
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 992) {
+                dropdowns.forEach(function(dropdown) {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove('open');
+                    }
+                });
+            }
+        });
     </script>

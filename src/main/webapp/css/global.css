@@ -421,3 +421,166 @@ main {
 .user-profile-link:hover span {
     color: #2F4A85;
 }
+
+/* ==========================================================================
+   Dropdown Mega Menu Component Styles - WIDER
+   ========================================================================== */
+
+/* Main dropdown trigger wrapping block */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Base button links styling */
+.dropdown .dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 12px 0;
+    text-decoration: none;
+    color: #1D1E22;
+    font-weight: 500;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hover background change on top-level interactive node */
+.dropdown:hover .dropbtn {
+    color: #5A7FBA;
+}
+
+/* Dropdown arrow rotation on hover */
+.dropdown:hover .dropbtn i {
+    transform: rotate(180deg);
+}
+
+.dropbtn i {
+    transition: transform 0.3s ease;
+    font-size: 12px;
+}
+
+/* Container panel for the Mega Menu content - WIDER */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -250px;
+    width: 900px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0,0,0,0.15);
+    border-radius: 16px;
+    padding: 30px;
+    z-index: 1100;
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Inner container for flex layout */
+.dropdown-inner {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+/* Arrow on top of dropdown */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 280px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.05));
+}
+
+/* Trigger structural display change on hover state */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Column Structure Design */
+.dropdown-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.dropdown-column h3 {
+    font-size: 15px;
+    color: #2F4A85;
+    border-bottom: 2px solid #5A7FBA;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+/* Sub-destination links */
+.dropdown-column a {
+    display: block;
+    color: #1D1E22;
+    padding: 8px 0;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-column a:last-child {
+    border-bottom: none;
+}
+
+/* Hover animation shifting text slightly right */
+.dropdown-column a:hover {
+    color: #5A7FBA;
+    padding-left: 8px;
+}
+
+/* Mobile Responsive Breakpoint overrides */
+@media (max-width: 992px) {
+    .dropdown {
+        width: 100%;
+        border-bottom: 1px solid #E0E0E0;
+    }
+    
+    .dropdown .dropbtn {
+        justify-content: space-between;
+        width: 100%;
+        padding: 12px 0;
+    }
+    
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        left: auto;
+        box-shadow: none;
+        border: none;
+        padding: 15px 0 15px 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+    
+    .dropdown-content::before {
+        display: none;
+    }
+    
+    .dropdown-inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+    
+    /* For mobile, show dropdown on click */
+    .dropdown.open .dropdown-content {
+        display: block;
+    }
+}
