@@ -21,6 +21,9 @@
         response.sendRedirect(request.getContextPath() + "/views/user/my-bookings.jsp");
         return;
     }
+    
+    String successMsg = request.getParameter("success");
+    String errorMsg = request.getParameter("error");
 %>
 <jsp:include page="/views/includes/header.jsp" />
 
@@ -39,6 +42,13 @@
                 <h2>Booking #<%= booking.getBookingId() %></h2>
                 <p>Status: <span class="status-<%= booking.getStatus() %>"><%= booking.getStatus() %></span></p>
             </div>
+            
+            <% if (successMsg != null) { %>
+                <div class="alert alert-success"><%= successMsg %></div>
+            <% } %>
+            <% if (errorMsg != null) { %>
+                <div class="alert alert-error"><%= errorMsg %></div>
+            <% } %>
             
             <div class="detail-content">
                 <div class="detail-section">
@@ -82,8 +92,10 @@
                     <i class="fas fa-arrow-left"></i> Back to Bookings
                 </a>
                 <% if ("pending".equals(booking.getStatus())) { %>
-                    <a href="${pageContext.request.contextPath}/user/cancel-booking?bookingId=<%= booking.getBookingId() %>" class="btn-cancel" onclick="return confirm('Cancel this booking?')">
-                        Cancel Booking
+                    <a href="${pageContext.request.contextPath}/user/cancel-booking?bookingId=<%= booking.getBookingId() %>" 
+                       class="btn-cancel" 
+                       onclick="return confirm('Are you sure you want to cancel this booking? This action cannot be undone.');">
+                        <i class="fas fa-times-circle"></i> Cancel Booking
                     </a>
                 <% } %>
             </div>
@@ -169,6 +181,9 @@
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 .btn-back {
     background: #6c757d;
@@ -184,23 +199,47 @@
 .btn-cancel:hover {
     background: #c82333;
 }
-.status-pending, .status-confirmed, .status-cancelled {
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-}
-.status-pending {
-    background: #fff3cd;
-    color: #856404;
+    display: inline-block;
 }
 .status-confirmed {
     background: #d4edda;
     color: #155724;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
 }
 .status-cancelled {
     background: #f8d7da;
     color: #721c24;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+.alert {
+    padding: 0.8rem 1rem;
+    margin: 1rem 2rem;
+    border-radius: 10px;
+}
+.alert-success {
+    background: #d4edda;
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+.alert-error {
+    background: #f8d7da;
+    color: #dc3545;
+    border: 1px solid #dc3545;
 }
 @media (max-width: 768px) {
     .info-row {
@@ -212,6 +251,9 @@
     }
     .detail-actions {
         flex-direction: column;
+    }
+    .btn-back, .btn-cancel {
+        justify-content: center;
     }
 }
 </style>

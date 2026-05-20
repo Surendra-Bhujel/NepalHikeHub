@@ -78,7 +78,7 @@
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn-save"><i class="fas fa-save"></i> Update Profile</button>
-                    <a href="${pageContext.request.contextPath}/views/user/change-password.jsp" class="btn-change"><i class="fas fa-key"></i> Change Password</a>
+                    <a href="${pageContext.request.contextPath}/views/user/change-password-direct.jsp" class="btn-change"><i class="fas fa-key"></i> Change Password</a>
                 </div>
             </form>
         </div>

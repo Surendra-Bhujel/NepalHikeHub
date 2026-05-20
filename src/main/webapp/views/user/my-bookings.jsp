@@ -24,6 +24,13 @@
     </div>
     
     <div class="bookings-container">
+        <!-- BACK TO DASHBOARD BUTTON -->
+        <div style="margin-bottom: 20px;">
+            <a href="${pageContext.request.contextPath}/views/user/dashboard.jsp" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+        
         <% if (myBookings == null || myBookings.isEmpty()) { %>
             <div class="empty-state">
                 <i class="fas fa-mountain"></i>
@@ -70,6 +77,21 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 5% 4rem;
+}
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+.btn-back:hover {
+    background: #5a6268;
+    transform: translateX(-3px);
 }
 .table-responsive {
     overflow-x: auto;
