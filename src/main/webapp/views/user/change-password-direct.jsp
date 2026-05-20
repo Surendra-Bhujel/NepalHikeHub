@@ -1,10 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.nepalhikehub.model.User" %>
+<%@ page import="com.nepalhikehub.dao.UserDAO" %>
+<%@ page import="com.nepalhikehub.util.PasswordEncryption" %>
 <%
     User currentUser = (User) session.getAttribute("user");
     if (currentUser == null) {
         response.sendRedirect(request.getContextPath() + "/views/auth/signin.jsp");
         return;
+    }
+    
+    String currentPassword = request.getParameter("currentPassword");
+    String newPassword = request.getParameter("newPassword");
+    String confirmPassword = request.getParameter("confirmPassword");
+    String action = request.getParameter("action");
+    
+    String message = null;
+    String messageType = null;
+    
+    if ("change".equals(action)) {
+        if (newPassword == null || newPassword.length() < 6) {
+            message = "Password must be at least 6 characters";
+            messageType = "error";
+        } else if (!newPassword.equals(confirmPassword)) {
+            message = "New passwords do not match";
+            messageType = "error";
+        } else {
+            UserDAO userDAO = new UserDAO();
+            User user = userDAO.getUserById(currentUser.getUserId());
+            
+            if (user != null && PasswordEncryption.verifyPassword(currentPassword, user.getPasswordHash())) {
+                String newHashedPassword = PasswordEncryption.hashPassword(newPassword);
+                if (userDAO.updatePassword(currentUser.getUserId(), newHashedPassword)) {
+                    message = "Password changed successfully!";
+                    messageType = "success";
+                } else {
+                    message = "Failed to update password";
+                    messageType = "error";
+                }
+            } else {
+                message = "Current password is incorrect";
+                messageType = "error";
+            }
+        }
     }
 %>
 <jsp:include page="/views/includes/header.jsp" />
@@ -25,14 +62,12 @@
                 <p>Please enter your current password and new password</p>
             </div>
             
-            <% if (request.getParameter("success") != null) { %>
-                <div class="alert alert-success">Password changed successfully!</div>
-            <% } %>
-            <% if (request.getParameter("error") != null) { %>
-                <div class="alert alert-error"><%= request.getParameter("error") %></div>
+            <% if (message != null) { %>
+                <div class="alert alert-<%= messageType %>"><%= message %></div>
             <% } %>
             
-            <form action="${pageContext.request.contextPath}/user/change-password" method="post" id="passwordForm">
+            <form method="post">
+                <input type="hidden" name="action" value="change">
                 <div class="form-group">
                     <label>Current Password</label>
                     <input type="password" name="currentPassword" required>
@@ -125,7 +160,7 @@
 </style>
 
 <script>
-document.getElementById('passwordForm').addEventListener('submit', function(e) {
+document.querySelector('form').addEventListener('submit', function(e) {
     var newPwd = document.getElementById('newPassword').value;
     var confirmPwd = document.getElementById('confirmPassword').value;
     if (newPwd !== confirmPwd) {

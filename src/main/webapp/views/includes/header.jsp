@@ -13,11 +13,6 @@
     boolean isBlog = requestURI.contains("blog.jsp");
     boolean isAbout = requestURI.contains("about.jsp");
     boolean isContact = requestURI.contains("contact.jsp");
-    
-    // Debug - remove after testing
-    if (currentUser != null) {
-        System.out.println("Header - User: " + currentUser.getEmail() + " | Role ID: " + currentUser.getRoleId());
-    }
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/global.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
     <nav class="navbar">
@@ -50,15 +46,15 @@
             <div class="auth-buttons">
                 <% if (currentUser != null) { %>
                     <div class="user-menu">
-                        <div class="user-avatar"><%= currentUser.getName().charAt(0) %></div>
-                        <span><%= currentUser.getName().split(" ")[0] %></span>
-                        <%-- ADMIN BUTTON - Shows when role_id is 1 --%>
+                        <!-- CLICKABLE AVATAR & NAME - Opens Dashboard -->
+                        <a href="${pageContext.request.contextPath}/views/user/dashboard.jsp" class="user-profile-link">
+                            <div class="user-avatar"><%= currentUser.getName().charAt(0) %></div>
+                            <span><%= currentUser.getName().split(" ")[0] %></span>
+                        </a>
                         <% if (currentUser.getRoleId() == 1) { %>
-                            <a href="${pageContext.request.contextPath}/views/admin/dashboard.jsp" style="background: #dc3545; color: white; padding: 5px 12px; border-radius: 20px; text-decoration: none; margin-left: 8px;">
-                                <i class="fas fa-crown"></i> Admin
-                            </a>
+                            <a href="${pageContext.request.contextPath}/views/admin/dashboard.jsp" class="btn-admin">Admin</a>
                         <% } %>
-                        <a href="${pageContext.request.contextPath}/signout" style="background: #6c757d; color: white; padding: 5px 12px; border-radius: 20px; text-decoration: none; margin-left: 8px;">Sign Out</a>
+                        <a href="${pageContext.request.contextPath}/signout" class="btn-signout">Sign Out</a>
                     </div>
                 <% } else { %>
                     <a href="${pageContext.request.contextPath}/views/auth/signin.jsp" class="btn-signin">Sign In</a>
@@ -67,7 +63,6 @@
             </div>
         </div>
     </nav>
-    
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
