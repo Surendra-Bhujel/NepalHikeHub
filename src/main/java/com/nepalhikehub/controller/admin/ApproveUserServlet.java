@@ -20,6 +20,6 @@ public class ApproveUserServlet extends HttpServlet {
             UserDAO userDAO = new UserDAO();
             userDAO.approveUser(Integer.parseInt(id));
         }
-        resp.sendRedirect(req.getContextPath() + "/admin/users");
+        resp.sendRedirect(req.getContextPath() + "/views/admin/manage-users.jsp");
     }
 }
