@@ -68,13 +68,6 @@
                     <p>Pending</p>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-heart"></i></div>
-                <div class="stat-info">
-                    <h3>0</h3>
-                    <p>Wishlist</p>
-                </div>
-            </div>
         </div>
         
         <!-- Quick Actions -->
@@ -88,12 +81,9 @@
     <a href="${pageContext.request.contextPath}/views/user/profile.jsp" class="action-btn">
         <i class="fas fa-user-edit"></i> Update Profile
     </a>
-   <a href="${pageContext.request.contextPath}/views/user/change-password-direct.jsp" class="action-btn">
-    <i class="fas fa-key"></i> Change Password
-</a>
-    <a href="${pageContext.request.contextPath}/views/user/wishlist.jsp" class="action-btn">
-        <i class="fas fa-heart"></i> My Wishlist
-    </a>
+   	<a href="${pageContext.request.contextPath}/views/user/change-password-direct.jsp" class="action-btn">
+    	<i class="fas fa-key"></i> Change Password
+	</a>
 </div>
         
         <!-- Recent Bookings -->
@@ -256,6 +246,8 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .action-btn {
@@ -276,7 +268,8 @@
 .action-btn:hover {
     background: #2F4A85;
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 /* Recent Bookings */

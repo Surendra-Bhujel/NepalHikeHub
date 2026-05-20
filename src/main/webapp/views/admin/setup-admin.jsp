@@ -79,8 +79,8 @@
     <hr>
     <h3>Login Credentials:</h3>
     <pre>
-Email: admin@nepalhikehub.com
-Password: admin123
+    	Email: admin@nepalhikehub.com
+    	Password: admin123
     </pre>
     
     <p>
