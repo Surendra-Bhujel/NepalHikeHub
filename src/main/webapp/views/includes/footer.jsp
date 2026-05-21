@@ -2,7 +2,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>NepalHikeHub</h3>
-                <p>Explore breathtaking trails, book your next adventure, and experience the beauty of nature with us. Your journey begins here—trusted guides, seamless booking, and unforgettable memories await.</p>
+                <p>Explore breathtaking trails, book your next adventure, and experience the beauty of nature with us. Your journey begins here trusted guides, seamless booking, and unforgettable memories await.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
