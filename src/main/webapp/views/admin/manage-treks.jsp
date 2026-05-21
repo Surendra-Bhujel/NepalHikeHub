@@ -154,7 +154,7 @@
         <a href="${pageContext.request.contextPath}/views/admin/manage-treks.jsp" class="active"><i class="fas fa-hiking"></i> Manage Treks</a>
         <a href="${pageContext.request.contextPath}/views/admin/manage-users.jsp"><i class="fas fa-users"></i> Manage Users</a>
         <a href="${pageContext.request.contextPath}/views/admin/manage-bookings.jsp"><i class="fas fa-calendar-check"></i> Manage Bookings</a>
-        <a href="${pageContext.request.contextPath}/views/admin/reports.jsp"><i class="fas fa-chart-bar"></i> Reports</a>
+        <a href="${pageContext.request.contextPath}/views/admin/reports.jsp"><i class="fas fa-chart-bar"></i> Reports & Analytics</a>
     </div>
     
     <div class="main-content">

@@ -19,10 +19,10 @@ INSERT INTO treks (trek_id, trek_name, difficulty, duration_days, price, max_gro
 (6, 'Three Highest Passes Trek', 'Extreme', 19, 1680.00, 12, 'Everest', 'Salleri', 'Lukla', 180.00, '/image/Three Highest Passes Trek Banner.png', 'Ultimate challenge crossing three high passes in Everest region.', 1),
 (7, 'Sleep at Base Camp Trek', 'Hard', 15, 1450.00, 12, 'Everest', 'Lukla', 'Everest Base Camp', 140.00, '/image/Sleep at Base Camp on Everest Trek Banner.png', 'Unique experience camping overnight at Everest Base Camp.', 1),
 (8, 'Ghorepani Poon Hill Trek', 'Easy', 8, 280.00, 25, 'Annapurna', 'Nayapul', 'Ghandruk', 43.00, '/image/Ghorepani Poon Hill Trek Banner.png', 'Best beginner trek with sunrise views from Poon Hill.', 1),
-(9, 'Annapurna Circuit with Poon Hill', 'Strenuous', 16, 890.00, 20, 'Annapurna', 'Besisahar', 'Nayapul', 160.00, '/image/Annapurna Circuit.png', 'Classic Annapurna Circuit with Poon Hill sunrise view.', 1),
+(9, 'Annapurna Circuit with Poon Hill', 'Hard', 16, 890.00, 20, 'Annapurna', 'Besisahar', 'Nayapul', 160.00, '/image/Annapurna Circuit.png', 'Classic Annapurna Circuit with Poon Hill sunrise view.', 1),
 (10, 'Ama Yangri Trek', 'Moderate', 3, 210.00, 15, 'Langtang', 'Tarkeghyang', 'Ama Yangri', 25.00, '/image/ama-yangri-trekking.png', 'Short spiritual trek to the sacred peak of Ama Yangri.', 1),
 (11, 'Gosaikunda Lake Trek', 'Moderate', 7, 420.00, 18, 'Langtang', 'Dhunche', 'Gosaikunda', 45.00, '/image/Gosaikunda Lake Trek Banner.png', 'Sacred alpine lake trek with religious significance.', 1),
-(12, 'Langtang Ganja La Pass Trek', 'Strenuous', 14, 1150.00, 10, 'Langtang', 'Syabrubesi', 'Melamchi', 110.00, '/image/Langtang Ganja La Pass Trek Banner.png', 'Challenging high pass trek for experienced hikers.', 1)
+(12, 'Langtang Ganja La Pass Trek', 'Hard', 14, 1150.00, 10, 'Langtang', 'Syabrubesi', 'Melamchi', 110.00, '/image/Langtang Ganja La Pass Trek Banner.png', 'Challenging high pass trek for experienced hikers.', 1)
 ON DUPLICATE KEY UPDATE 
     trek_name = VALUES(trek_name),
     difficulty = VALUES(difficulty),
