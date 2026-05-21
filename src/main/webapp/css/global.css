@@ -2,6 +2,9 @@
    global.css  — NepalHikeHub  (all pages include this via header.jsp)
    Fix: removed margin-top:70px from banner-container (was pushing
         images below headings). Navbar is sticky so no top margin needed.
+   FIXED: 
+     1. removed font-weight:600 from dropdown links on hover (stops shaking)
+     2. added ::after pseudo-element to .dropdown (stops flicker when entering dropdown)
    ============================================================ */
 
 :root {
@@ -102,12 +105,28 @@ ul   { list-style: none; padding: 0; margin: 0; }
 }
 
 /* ── Dropdown ── */
+.dropdown {
+    position: relative;
+}
+
+/* Invisible bridge to prevent flicker when moving mouse from menu item into dropdown */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;          /* matches the gap below .dropdown-content */
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    pointer-events: auto;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
     top: calc(100% + 8px);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);  /* translateZ(0) for rendering stability */
     width: 720px;
     background: var(--white);
     border-radius: 12px;
@@ -157,7 +176,14 @@ ul   { list-style: none; padding: 0; margin: 0; }
     transition: background 0.15s, color 0.15s;
 }
 .dropdown-column a i { color: var(--primary-light); font-size: 0.8rem; flex-shrink: 0; }
-.dropdown-column a:hover { background: var(--light); color: var(--primary); font-weight: 600; }
+
+/* ========== FIXED: removed font-weight:600 – no more layout shift / shaking ========== */
+.dropdown-column a:hover {
+    background: var(--light);
+    color: var(--primary);
+    font-weight: 400;   /* stays the same as normal state – no width change */
+}
+/* =================================================================================== */
 
 /* Footer row spanning full dropdown width */
 .dropdown-footer {
@@ -406,6 +432,11 @@ footer a:hover { color: white; text-decoration: underline; }
    MOBILE  (≤ 992px)
    ================================================================ */
 @media (max-width: 992px) {
+    /* Remove the invisible bridge on mobile because dropdown works differently */
+    .dropdown::after {
+        display: none;
+    }
+
     .nav-menu {
         display: none;
         flex-direction: column;

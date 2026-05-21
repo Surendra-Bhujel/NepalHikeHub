@@ -50,8 +50,8 @@
         <h2>Best Trekking In Nepal 2026</h2>
     </div>
 
-    <!-- Search Bar -->
-    <div class="search-section">
+    <!-- Search Bar - added ID to keep page here after submit/clear -->
+    <div class="search-section" id="search-section">
         <h3>Find Your Perfect Trek</h3>
         <form action="${pageContext.request.contextPath}/views/trekking.jsp" method="get" class="search-form">
             <input type="text" name="search" placeholder="Search by trek name or region..."
@@ -71,7 +71,7 @@
             </select>
             <button type="submit"><i class="fas fa-search"></i> Search</button>
             <% if (hasFilter) { %>
-                <a href="${pageContext.request.contextPath}/views/trekking.jsp" class="clear-btn">Clear</a>
+                <a href="${pageContext.request.contextPath}/views/trekking.jsp#search-section" class="clear-btn">Clear</a>
             <% } %>
         </form>
     </div>
@@ -84,13 +84,12 @@
             <div style="text-align:center; padding:60px 20px; color:#666;">
                 <i class="fas fa-mountain" style="font-size:3rem; color:#ccc; display:block; margin-bottom:16px;"></i>
                 <p style="font-size:1.1rem;">No treks found. Try a different search.</p>
-                <a href="${pageContext.request.contextPath}/views/trekking.jsp"
+                <a href="${pageContext.request.contextPath}/views/trekking.jsp#search-section"
                    style="color:#2F4A85; font-weight:600;">Clear search →</a>
             </div>
         <%
             } else {
                 for (Trek trek : treks) {
-                    // FIXED: Build correct image path from /image/ folder
                     String imgSrc;
                     String trekNameLower = trek.getTrekName().toLowerCase();
                     
@@ -136,5 +135,41 @@
         %>
     </div>
 </main>
+
+<!-- JavaScript to keep page at search section after search & clear -->
+<script>
+    (function() {
+        // Helper to scroll to search section smoothly
+        function scrollToSearchSection() {
+            var searchSection = document.getElementById('search-section');
+            if (searchSection) {
+                searchSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // If URL already has #search-section, scroll after page loads
+        if (window.location.hash === '#search-section') {
+            // Small delay ensures DOM and images are ready
+            setTimeout(scrollToSearchSection, 100);
+        }
+
+        // For the search form: append #search-section to action before submit
+        var searchForm = document.querySelector('.search-form');
+        if (searchForm) {
+            searchForm.addEventListener('submit', function(e) {
+                var action = this.getAttribute('action');
+                // If action is empty, use current URL path
+                if (!action) {
+                    action = window.location.pathname;
+                }
+                // Add fragment if not already present
+                if (action.indexOf('#search-section') === -1) {
+                    this.setAttribute('action', action + '#search-section');
+                }
+                // Form will submit normally, browser will handle fragment
+            });
+        }
+    })();
+</script>
 
 <jsp:include page="/views/includes/footer.jsp" />
