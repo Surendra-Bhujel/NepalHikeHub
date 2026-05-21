@@ -84,7 +84,7 @@ public class BookingDAO {
     // Get all bookings (for admin)
     public List<Booking> getAllBookings() {
         List<Booking> bookings = new ArrayList<>();
-        String sql = "SELECT b.*, t.trek_name, t.price, u.name as user_name FROM bookings b JOIN treks t ON b.trek_id = t.trek_id JOIN users u ON b.user_id = u.user_id ORDER BY b.booking_date DESC";
+        String sql = "SELECT b.*, t.trek_name, t.price, u.name as user_name FROM bookings b JOIN treks t ON b.trek_id = t.trek_id JOIN users u ON b.user_id = u.user_id ORDER BY b.booking_date ASC";
         
         try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();
@@ -104,7 +104,7 @@ public class BookingDAO {
     // Get pending bookings
     public List<Booking> getPendingBookings() {
         List<Booking> bookings = new ArrayList<>();
-        String sql = "SELECT b.*, t.trek_name, t.price, u.name as user_name FROM bookings b JOIN treks t ON b.trek_id = t.trek_id JOIN users u ON b.user_id = u.user_id WHERE b.status = 'pending' ORDER BY b.booking_date DESC";
+        String sql = "SELECT b.*, t.trek_name, t.price, u.name as user_name FROM bookings b JOIN treks t ON b.trek_id = t.trek_id JOIN users u ON b.user_id = u.user_id WHERE b.status = 'pending' ORDER BY b.booking_date ASC";
         
         try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();

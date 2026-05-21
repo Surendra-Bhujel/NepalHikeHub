@@ -150,25 +150,7 @@
                     <a href="${pageContext.request.contextPath}/views/booking.jsp?trekId=5" class="btn-book">Book Now →</a>
                 </div>
             </div>
-            <!-- Lobuche Peak -->
-            <div class="package-card">
-                <div class="package-image">
-                    <img src="${pageContext.request.contextPath}/image/lobuche.png" 
-                         alt="Lobuche Peak"
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x250/5A7FBA/white?text=Lobuche+Peak'">
-                </div>
-                <div class="package-content">
-                    <h3>Lobuche Peak Climbing</h3>
-                    <p>Lobuche Peak (6,119m) offers incredible views of Everest.</p>
-                    <div class="package-meta" style="display: flex; justify-content: space-between; margin: 0.5rem 0;">
-                        <span><i class="fas fa-map-marker-alt"></i> Everest Region</span>
-                        <span><i class="fas fa-calendar"></i> 16 Days</span>
-                        <span><i class="fas fa-chart-line"></i> Hard</span>
-                    </div>
-                    <div class="package-price">$1,500 <span>per person</span></div>
-                    <a href="${pageContext.request.contextPath}/views/booking.jsp?trekId=6" class="btn-book">Book Now →</a>
-                </div>
-            </div>
+            
         </div>
     </section>
 

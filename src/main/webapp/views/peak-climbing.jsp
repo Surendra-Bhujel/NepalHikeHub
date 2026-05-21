@@ -59,25 +59,6 @@
             </div>
         </div>
         
-        <!-- Lobuche Peak -->
-        <div class="peak-item">
-            <div class="peak-image">
-                <img src="${pageContext.request.contextPath}/image/lobuche.png" 
-                     alt="Lobuche Peak"
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x250/2F4A85/white?text=Lobuche+Peak'">
-            </div>
-            <div class="peak-details">
-                <h3>Lobuche Peak Climbing</h3>
-                <div class="package-meta">
-                    <span><i class="fas fa-map-marker-alt"></i> Everest Region</span>
-                    <span><i class="fas fa-calendar"></i> 16 Days</span>
-                    <span><i class="fas fa-chart-line"></i> Hard</span>
-                </div>
-                <p>Lobuche Peak (6,119m) offers incredible views of Everest, Lhotse, and Ama Dablam.</p>
-                <div class="package-price">$1,500 <span>per person</span></div>
-                <a href="${pageContext.request.contextPath}/views/booking.jsp?trekId=6" class="btn-book">Book Now →</a>
-            </div>
-        </div>
     </div>
 </main>
 
