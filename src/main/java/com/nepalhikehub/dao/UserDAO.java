@@ -164,7 +164,7 @@ public class UserDAO {
     // Get all users (for admin)
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT u.*, r.role_name FROM users u JOIN roles r ON u.role_id = r.role_id ORDER BY u.created_at DESC";
+        String sql = "SELECT u.*, r.role_name FROM users u JOIN roles r ON u.role_id = r.role_id ORDER BY u.created_at ASC";
         
         try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();
@@ -182,7 +182,7 @@ public class UserDAO {
     // Get pending users (for admin approval)
     public List<User> getPendingUsers() {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT u.*, r.role_name FROM users u JOIN roles r ON u.role_id = r.role_id WHERE u.is_approved = 0 ORDER BY u.created_at DESC";
+        String sql = "SELECT u.*, r.role_name FROM users u JOIN roles r ON u.role_id = r.role_id WHERE u.is_approved = 0 ORDER BY u.created_at ASC";
         
         try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();
