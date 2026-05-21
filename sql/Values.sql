@@ -10,13 +10,28 @@ INSERT INTO users (role_id, name, email, password_hash, phone, is_approved) VALU
 (2, 'Sita Rai', 'sita@example.com', 'hashed_sita_password', '9811111111', 1),
 (2, 'Hari Thapa', 'hari@example.com', 'hashed_hari_password', '9822222222', 1);
 
-INSERT INTO treks
-(trek_name, difficulty, duration_days, price, max_group_size, region, start_location, end_location, distance_km, image_url, description, is_active)
-VALUES
-('Everest Base Camp', 'Hard', 14, 1200.00, 15, 'Everest', 'Lukla', 'Everest Base Camp', 130.50, '/images/ebc.jpg', 'World famous Everest trek.', 1),
-('Annapurna Circuit', 'Moderate', 12, 900.00, 20, 'Annapurna', 'Besisahar', 'Nayapul', 160.00, '/images/annapurna.jpg', 'Classic Annapurna circuit trek.', 1),
-('Langtang Valley', 'Moderate', 7, 650.00, 18, 'Langtang', 'Syabrubesi', 'Kyanjin Gompa', 65.00, '/images/langtang.jpg', 'Beautiful Langtang valley trek.', 1),
-('Ghorepani Poon Hill', 'Easy', 5, 400.00, 25, 'Annapurna', 'Nayapul', 'Birethanti', 43.00, '/images/poonhill.jpg', 'Best beginner trek.', 1);
+INSERT INTO treks (trek_id, trek_name, difficulty, duration_days, price, max_group_size, region, start_location, end_location, distance_km, image_url, description, is_active) VALUES
+(1, 'Everest Base Camp Trek', 'Hard', 14, 1290.00, 15, 'Everest', 'Lukla', 'Everest Base Camp', 130.50, '/image/Everest Base Camp Trek 14 Days Banner.png', 'World famous Everest Base Camp trek with stunning mountain views.', 1),
+(2, 'Annapurna Base Camp Trek', 'Moderate', 14, 650.00, 20, 'Annapurna', 'Nayapul', 'Annapurna Base Camp', 70.00, '/image/Annapurna-Dhaulagiri.png', 'Beautiful trek to the base camp of Annapurna with mountain views.', 1),
+(3, 'Langtang Valley Trek', 'Moderate', 10, 560.00, 18, 'Langtang', 'Syabrubesi', 'Kyanjin Gompa', 65.00, '/image/Langtang Valley Trek Banner.png', 'Beautiful Langtang valley trek with glacier views.', 1),
+(4, 'Mera Peak Climbing', 'Hard', 14, 1800.00, 10, 'Everest', 'Lukla', 'Mera Peak', 120.00, '/image/mera%20peak.png', 'Highest trekking peak in Nepal at 6,476m.', 1),
+(5, 'Island Peak Climbing', 'Hard', 18, 1600.00, 10, 'Everest', 'Lukla', 'Island Peak', 130.00, '/image/island%20peak.png', 'Popular climbing peak at 6,189m with spectacular views.', 1),
+(6, 'Three Highest Passes Trek', 'Extreme', 19, 1680.00, 12, 'Everest', 'Salleri', 'Lukla', 180.00, '/image/Three Highest Passes Trek Banner.png', 'Ultimate challenge crossing three high passes in Everest region.', 1),
+(7, 'Sleep at Base Camp Trek', 'Hard', 15, 1450.00, 12, 'Everest', 'Lukla', 'Everest Base Camp', 140.00, '/image/Sleep at Base Camp on Everest Trek Banner.png', 'Unique experience camping overnight at Everest Base Camp.', 1),
+(8, 'Ghorepani Poon Hill Trek', 'Easy', 8, 280.00, 25, 'Annapurna', 'Nayapul', 'Ghandruk', 43.00, '/image/Ghorepani Poon Hill Trek Banner.png', 'Best beginner trek with sunrise views from Poon Hill.', 1),
+(9, 'Annapurna Circuit with Poon Hill', 'Strenuous', 16, 890.00, 20, 'Annapurna', 'Besisahar', 'Nayapul', 160.00, '/image/Annapurna Circuit.png', 'Classic Annapurna Circuit with Poon Hill sunrise view.', 1),
+(10, 'Ama Yangri Trek', 'Moderate', 3, 210.00, 15, 'Langtang', 'Tarkeghyang', 'Ama Yangri', 25.00, '/image/ama-yangri-trekking.png', 'Short spiritual trek to the sacred peak of Ama Yangri.', 1),
+(11, 'Gosaikunda Lake Trek', 'Moderate', 7, 420.00, 18, 'Langtang', 'Dhunche', 'Gosaikunda', 45.00, '/image/Gosaikunda Lake Trek Banner.png', 'Sacred alpine lake trek with religious significance.', 1),
+(12, 'Langtang Ganja La Pass Trek', 'Strenuous', 14, 1150.00, 10, 'Langtang', 'Syabrubesi', 'Melamchi', 110.00, '/image/Langtang Ganja La Pass Trek Banner.png', 'Challenging high pass trek for experienced hikers.', 1)
+ON DUPLICATE KEY UPDATE 
+    trek_name = VALUES(trek_name),
+    difficulty = VALUES(difficulty),
+    duration_days = VALUES(duration_days),
+    price = VALUES(price),
+    max_group_size = VALUES(max_group_size),
+    region = VALUES(region),
+    image_url = VALUES(image_url),
+    description = VALUES(description);
 
 INSERT INTO routes (trek_id, waypoint_order, waypoint_name, altitude_m, notes) VALUES
 (1,1,'Lukla',2860,'Starting point'),
