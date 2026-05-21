@@ -2,12 +2,11 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.nepalhikehub.util.DBConnection" %>
 <%@ page import="com.nepalhikehub.model.User" %>
-<%@ page import="com.nepalhikehub.dao.UserDAO" %>
 <%
     // If already logged in as admin, go straight to dashboard
     User alreadyLoggedIn = (User) session.getAttribute("user");
     if (alreadyLoggedIn != null && alreadyLoggedIn.getRoleId() == 1) {
-        response.sendRedirect(request.getContextPath() + "/admin/dashboard");
+        response.sendRedirect(request.getContextPath() + "/views/admin/dashboard.jsp");
         return;
     }
 
@@ -22,7 +21,6 @@
 
         try {
             conn = DBConnection.getConnection();
-            // Must be role_id = 1 AND approved
             pstmt = conn.prepareStatement(
                 "SELECT * FROM users WHERE email = ? AND role_id = 1 AND is_approved = 1"
             );
@@ -32,7 +30,6 @@
             if (rs.next()) {
                 String dbPassword = rs.getString("password_hash");
                 if (password.equals(dbPassword)) {
-                    // Build User object to match what all other pages expect
                     User admin = new User();
                     admin.setUserId(rs.getInt("user_id"));
                     admin.setName(rs.getString("name"));
@@ -41,7 +38,7 @@
                     admin.setApproved(rs.getBoolean("is_approved"));
 
                     session.setAttribute("user", admin);
-                    response.sendRedirect(request.getContextPath() + "/admin/dashboard");
+                    response.sendRedirect(request.getContextPath() + "/views/admin/dashboard.jsp");
                     return;
                 } else {
                     errorMsg = "Invalid password!";

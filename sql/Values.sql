@@ -5,7 +5,7 @@ INSERT INTO roles (role_name) VALUES
 ('customer');
 
 INSERT INTO users (role_id, name, email, password_hash, phone, is_approved) VALUES
-(1, 'Admin User', 'admin@trekhub.com', 'hashed_admin_password', '9800000001', 1),
+(1, 'Admin User', 'admin@trekhub.com', 'JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=', '9800000001', 1),
 (2, 'Ram Sharma', 'ram@example.com', 'hashed_ram_password', '9800000002', 1),
 (2, 'Sita Rai', 'sita@example.com', 'hashed_sita_password', '9811111111', 1),
 (2, 'Hari Thapa', 'hari@example.com', 'hashed_hari_password', '9822222222', 1);

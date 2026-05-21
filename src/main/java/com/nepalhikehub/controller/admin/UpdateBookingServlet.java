@@ -10,30 +10,42 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/admin/update-booking")   // Fixed URL to match sidebar links
+@WebServlet("/admin/update-booking")
 public class UpdateBookingServlet extends HttpServlet {
-
+    
+    private BookingDAO bookingDAO;
+    
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void init() throws ServletException {
+        bookingDAO = new BookingDAO();
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
-
-        HttpSession session = request.getSession(false);
+        
+        HttpSession session = req.getSession(false);
         User user = (session != null) ? (User) session.getAttribute("user") : null;
-
+        
         if (user == null || user.getRoleId() != 1) {
-            response.sendRedirect(request.getContextPath() + "/admin/admin-login.jsp");
+            resp.sendRedirect(req.getContextPath() + "/admin/admin-login.jsp");
             return;
         }
-
-        String bookingIdParam = request.getParameter("bookingId");
-        String status = request.getParameter("status");
-
-        if (bookingIdParam != null && status != null) {
-            int bookingId = Integer.parseInt(bookingIdParam);
-            BookingDAO bookingDAO = new BookingDAO();
-            bookingDAO.updateBookingStatus(bookingId, status);
+        
+        String bookingId = req.getParameter("bookingId");
+        String status = req.getParameter("status");
+        
+        if (bookingId != null && status != null) {
+            int id = Integer.parseInt(bookingId);
+            
+            if ("confirmed".equals(status)) {
+                bookingDAO.confirmBooking(id);
+            } else if ("cancelled".equals(status)) {
+                bookingDAO.cancelBooking(id);
+            }
         }
-
-        response.sendRedirect(request.getContextPath() + "/admin/manage-bookings");
+        
+        // Redirect back to manage bookings page
+        resp.sendRedirect(req.getContextPath() + "/views/admin/manage-bookings.jsp");
     }
 }
