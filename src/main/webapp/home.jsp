@@ -67,7 +67,7 @@
                 <div class="package-content">
                     <h3>Everest Base Camp Trek</h3>
                     <p>The legendary trek to the base of the world's highest mountain.</p>
-                    <div class="package-price">$1,200 <span>per person</span></div>
+                    <div class="package-price">$1,290 <span>per person</span></div>
                     <a href="${pageContext.request.contextPath}/views/booking.jsp?trekId=1" class="btn-book">Book Now →</a>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <div class="package-content">
                     <h3>Annapurna Circuit Trek</h3>
                     <p>Diverse landscapes from lush forests to high-altitude desert.</p>
-                    <div class="package-price">$900 <span>per person</span></div>
+                    <div class="package-price">$650 <span>per person</span></div>
                     <a href="${pageContext.request.contextPath}/views/booking.jsp?trekId=2" class="btn-book">Book Now →</a>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 <div class="package-content">
                     <h3>Langtang Valley Trek</h3>
                     <p>The "Valley of Glaciers" - pristine Himalayan landscapes.</p>
-                    <div class="package-price">$650 <span>per person</span></div>
+                    <div class="package-price">$560 <span>per person</span></div>
                     <a href="${pageContext.request.contextPath}/views/booking.jsp?trekId=3" class="btn-book">Book Now →</a>
                 </div>
             </div>

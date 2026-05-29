@@ -46,15 +46,15 @@
             <h2>Sceneries from the Trail</h2>
             <div class="trek-gallery">
                 <div class="gallery-item">
-                    <img src="image/Trekkers technical crossing through snowy Ganja La Pass.png" alt="Trekkers technical crossing through snowy Ganja La Pass">
+                    <img src="${pageContext.request.contextPath}/image/Trekkers technical crossing through snowy Ganja La Pass.png" alt="Trekkers technical crossing through snowy Ganja La Pass">
                     <div class="gallery-caption">Conquering Ganja La Pass (5,122m)</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="image/Expedition tents pitched on snowy high pass terrain.png" alt="Expedition tents pitched on snowy high pass terrain">
+                    <img src="${pageContext.request.contextPath}/image/Expedition tents pitched on snowy high pass terrain.png" alt="Expedition tents pitched on snowy high pass terrain">
                     <div class="gallery-caption">High Alpine Wilderness Camp</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="image/Lush green Helambu valley hills and terraced farms.png" alt="Lush green Helambu valley hills and terraced farms">
+                    <img src="${pageContext.request.contextPath}/image/Lush green Helambu valley hills and terraced farms.png" alt="Lush green Helambu valley hills and terraced farms">
                     <div class="gallery-caption">Descending Into Helambu</div>
                 </div>
             </div>
