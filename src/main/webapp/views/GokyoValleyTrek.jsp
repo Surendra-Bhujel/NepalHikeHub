@@ -158,8 +158,7 @@
                 window.location.href = "${pageContext.request.contextPath}/views/auth/signin.jsp";
             }
         } else {
-            // trekId=5 for Gokyo Valley Circuit Trek
-            window.location.href = "${pageContext.request.contextPath}/views/booking.jsp?trekId=5";
+            window.location.href = "${pageContext.request.contextPath}/views/booking.jsp?trekId=14";
         }
     }
     

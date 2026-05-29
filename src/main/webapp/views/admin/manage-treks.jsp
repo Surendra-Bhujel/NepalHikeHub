@@ -66,7 +66,7 @@
     try {
         conn = DBConnection.getConnection();
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM treks ORDER BY trek_id DESC");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM treks ORDER BY trek_id ASC");
         while (rs.next()) {
             Map<String, Object> trek = new HashMap<>();
             trek.put("id", rs.getInt("trek_id"));

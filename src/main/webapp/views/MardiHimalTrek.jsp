@@ -150,7 +150,7 @@
                 window.location.href = "${pageContext.request.contextPath}/views/auth/signin.jsp";
             }
         } else {
-            window.location.href = "${pageContext.request.contextPath}/views/booking.jsp?trekId=4";
+            window.location.href = "${pageContext.request.contextPath}/views/booking.jsp?trekId=13";
         }
     }
     
